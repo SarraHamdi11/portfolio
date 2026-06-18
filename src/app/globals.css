@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.5;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float-fade {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-40px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+    will-change: transform;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+}
+
+@layer base {
+  /* LIGHT MODE (Default) - Classy & Professional */
+  :root {
+    /* Our Custom Tokens */
+    --background: #F0EBE0;
+    --surface: #E5DFD2;
+    --text-primary: #232323;
+    --text-secondary: #6B6B6B;
+    --accent-primary: #A8647A;
+    --accent-secondary: #F0C7D4;
+    --accent-glow: rgba(168, 100, 122, 0.18);
+
+    /* Tailwind/ShadCN Tokens */
+    --background-color: 40 22% 92%;
+    --foreground: 0 0% 14%;
+    --card: 40 18% 88%;
+    --card-foreground: 0 0% 14%;
+    --popover: 40 22% 92%;
+    --popover-foreground: 0 0% 14%;
+    --primary: 341 32% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 341 60% 88%;
+    --secondary-foreground: 0 0% 14%;
+    --muted: 40 15% 84%;
+    --muted-foreground: 0 0% 42%;
+    --accent: 341 32% 53%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 48%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 10% 76%;
+    --input: 40 10% 76%;
+    --ring: 341 32% 53%;
+    --radius: 0.5rem;
+  }
+
+  /* DARK MODE */
+  .dark {
+    /* Our Custom Tokens (Kept Your Original Look) */
+    --background: #09090b;
+    --surface: #111111;
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --accent-primary: #f4c2d7;
+    --accent-secondary: #ffe4f0;
+    --accent-glow: rgba(244, 194, 215, 0.3);
+
+    /* Tailwind/ShadCN Tokens */
+    --background-color: 240 5% 6%;
+    --foreground: 0 0% 95%;
+    --card: 240 4% 8%;
+    --card-foreground: 0 0% 95%;
+    --popover: 240 5% 6%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 343 60% 70%;
+    --primary-foreground: 0 0% 6%;
+    --secondary: 340 100% 94%;
+    --secondary-foreground: 240 5% 6%;
+    --muted: 240 4% 15%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 343 60% 70%;
+    --accent-foreground: 0 0% 6%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 343 60% 70% / 15%;
+    --input: 240 4% 20%;
+    --ring: 343 60% 70%;
+    --radius: 0.5rem;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+    scroll-behavior: smooth;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, var(--accent-primary), #a8647a);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: color-mix(in srgb, var(--surface) 80%, transparent);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border));
+  }
+
+  .nav-scrolled {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: color-mix(in srgb, var(--background) 80%, transparent);
+    border-bottom: 1px solid hsl(var(--border));
+  }
+
+  .pulse-dot {
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  }
+}
