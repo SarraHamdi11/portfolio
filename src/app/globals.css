@@ -142,7 +142,6 @@
     color: var(--text-primary);
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
-    cursor: none;
   }
 
   h1, h2, h3, h4, h5, h6 {
