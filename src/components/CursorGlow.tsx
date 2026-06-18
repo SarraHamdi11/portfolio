@@ -41,7 +41,7 @@ export default function CursorGlow() {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-40">
+    <div className="fixed inset-0 pointer-events-none z-5">
       {/* Custom White Circle Cursor */}
       <motion.div
         className="absolute rounded-full bg-white shadow-lg"

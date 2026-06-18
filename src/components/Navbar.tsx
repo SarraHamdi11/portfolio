@@ -24,11 +24,13 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 pt-4">
-      <div className="mx-auto max-w-[820px]">
-        <div
-          className="flex items-center justify-between px-6 py-3 rounded-[50px]"
-        >
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "nav-scrolled" : ""
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="flex items-center justify-between">
           <button
             onClick={() => scrollTo("home")}
             className="text-2xl font-extrabold tracking-tight gradient-text"
@@ -36,7 +38,7 @@ export default function Navbar() {
             {portfolioData.name}
           </button>
 
-          <div className="hidden md:flex items-center gap-12">
+          <div className="hidden md:flex items-center gap-8">
             {[
               { id: "experience", label: "Experience" },
               { id: "portfolio", label: "Projects" },
@@ -46,18 +48,12 @@ export default function Navbar() {
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
-                className="text-base font-semibold transition-colors px-3 py-1.5 rounded-[30px]"
+                className="text-base font-semibold transition-colors"
                 style={{
                   color: "var(--text-secondary)",
                 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "var(--accent-primary)";
-                  e.currentTarget.style.backgroundColor = "rgba(180,130,140,0.12)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "var(--text-secondary)";
-                  e.currentTarget.style.backgroundColor = "transparent";
-                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent-primary)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
               >
                 {item.label}
               </button>
@@ -77,7 +73,7 @@ export default function Navbar() {
             </Button>
             <Button
               onClick={() => scrollTo("contact")}
-              className="gradient-bg hover:opacity-90 transition-opacity border-0 text-base font-semibold rounded-[30px]"
+              className="gradient-bg hover:opacity-90 transition-opacity border-0 text-base font-semibold"
               style={{
                 color: "var(--background)",
               }}
@@ -107,7 +103,7 @@ export default function Navbar() {
         </div>
 
         {isOpen && (
-          <div className="md:hidden mt-6 flex flex-col gap-4 pb-6 glass pt-4 rounded-[20px]">
+          <div className="md:hidden mt-6 flex flex-col gap-4 pb-6 glass pt-4">
             {[
               { id: "experience", label: "Experience" },
               { id: "portfolio", label: "Projects" },
@@ -129,7 +125,7 @@ export default function Navbar() {
             ))}
             <Button
               onClick={() => scrollTo("contact")}
-              className="w-full gradient-bg text-gray-900 hover:opacity-90 transition-opacity border-0 mt-2 font-semibold rounded-[30px]"
+              className="w-full gradient-bg text-gray-900 hover:opacity-90 transition-opacity border-0 mt-2 font-semibold"
             >
               Hire Me
             </Button>
