@@ -27,9 +27,9 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 pt-4">
       <div className="mx-auto max-w-[820px]">
         <div
-          className="flex items-center justify-between px-5 py-2.5 rounded-[50px] backdrop-blur-[10px]"
+          className="flex items-center justify-between px-6 py-3 rounded-[50px] backdrop-blur-[10px]"
           style={{
-            background: "rgba(237,232,232,0.7)",
+            background: "var(--background)",
             border: "1px solid rgba(180,150,155,0.25)"
           }}
         >
@@ -40,7 +40,7 @@ export default function Navbar() {
             {portfolioData.name}
           </button>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-12">
             {[
               { id: "experience", label: "Experience" },
               { id: "portfolio", label: "Projects" },
