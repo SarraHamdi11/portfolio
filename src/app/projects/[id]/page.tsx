@@ -55,7 +55,7 @@ export default function ProjectPage() {
             <p className="text-lg" style={{ color: "var(--text-secondary)" }}>{project.description}</p>
           </div>
 
-          <div className="relative mb-12 glass rounded-2xl overflow-hidden border-2" style={{ borderColor: "color-mix(in srgb, var(--accent-primary) 10%, transparent)" }}>
+          <div className="relative mb-12 glass rounded-2xl overflow-hidden border-2 z-[100]" style={{ borderColor: "color-mix(in srgb, var(--accent-primary) 10%, transparent)" }}>
             <div className="aspect-video relative overflow-hidden">
               <img
                 src={project.images[currentImageIndex]}
@@ -68,27 +68,27 @@ export default function ProjectPage() {
               <>
                 <button
                   onClick={prevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full glass transition-all z-50 pointer-events-auto"
-                  style={{ color: "var(--text-primary)" }}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full glass transition-all z-[200] pointer-events-auto cursor-pointer"
+                  style={{ color: "var(--text-primary)", backgroundColor: "rgba(0,0,0,0.5)" }}
                 >
-                  <ChevronLeft size={24} />
+                  <ChevronLeft size={32} />
                 </button>
                 <button
                   onClick={nextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full glass transition-all z-50 pointer-events-auto"
-                  style={{ color: "var(--text-primary)" }}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full glass transition-all z-[200] pointer-events-auto cursor-pointer"
+                  style={{ color: "var(--text-primary)", backgroundColor: "rgba(0,0,0,0.5)" }}
                 >
-                  <ChevronRight size={24} />
+                  <ChevronRight size={32} />
                 </button>
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-50 pointer-events-auto">
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-[200] pointer-events-auto">
                   {project.images.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
-                      className={`w-3 h-3 rounded-full transition-all pointer-events-auto`}
+                      className={`h-4 rounded-full transition-all pointer-events-auto cursor-pointer`}
                       style={{
                         backgroundColor: index === currentImageIndex ? "var(--accent-primary)" : "color-mix(in srgb, var(--text-primary) 50%, transparent)",
-                        width: index === currentImageIndex ? "2rem" : "0.75rem"
+                        width: index === currentImageIndex ? "3rem" : "1rem"
                       }}
                     />
                   ))}
