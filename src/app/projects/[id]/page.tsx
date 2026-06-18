@@ -68,24 +68,24 @@ export default function ProjectPage() {
               <>
                 <button
                   onClick={prevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full glass transition-all z-30"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full glass transition-all z-50 pointer-events-auto"
                   style={{ color: "var(--text-primary)" }}
                 >
                   <ChevronLeft size={24} />
                 </button>
                 <button
                   onClick={nextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full glass transition-all z-30"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full glass transition-all z-50 pointer-events-auto"
                   style={{ color: "var(--text-primary)" }}
                 >
                   <ChevronRight size={24} />
                 </button>
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-30">
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-50 pointer-events-auto">
                   {project.images.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
-                      className={`w-3 h-3 rounded-full transition-all`}
+                      className={`w-3 h-3 rounded-full transition-all pointer-events-auto`}
                       style={{
                         backgroundColor: index === currentImageIndex ? "var(--accent-primary)" : "color-mix(in srgb, var(--text-primary) 50%, transparent)",
                         width: index === currentImageIndex ? "2rem" : "0.75rem"
