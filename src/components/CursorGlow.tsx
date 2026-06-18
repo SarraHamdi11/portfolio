@@ -41,7 +41,7 @@ export default function CursorGlow() {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-[-1]">
+    <div className="fixed inset-0 pointer-events-none z-1">
       {/* Soap Bubbles */}
       {bubbles.map((bubble) => (
         <div

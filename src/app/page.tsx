@@ -21,7 +21,7 @@ export default function Home() {
         <CursorGlow />
         <Navbar />
         <FloatingSocials />
-        <main className="relative z-10">
+        <main className="relative z-20">
           <Hero />
           <Stats />
           <Experience />
