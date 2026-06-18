@@ -41,19 +41,7 @@ export default function CursorGlow() {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0">
-      {/* Custom White Circle Cursor */}
-      <motion.div
-        className="absolute rounded-full bg-white shadow-lg"
-        style={{
-          width: "12px",
-          height: "12px",
-          x: position.x - 6,
-          y: position.y - 6,
-        }}
-        transition={{ type: "spring", stiffness: 500, damping: 28 }}
-      />
-
+    <div className="fixed inset-0 pointer-events-none z-[-1]">
       {/* Soap Bubbles */}
       {bubbles.map((bubble) => (
         <div

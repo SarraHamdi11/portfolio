@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { ExternalLink, Github, ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { portfolioData } from "@/data/portfolio";
 import Link from "next/link";
+import CursorGlow from "@/components/CursorGlow";
 
 export default function ProjectPage() {
   const params = useParams();
@@ -32,7 +33,10 @@ export default function ProjectPage() {
 
   return (
     <div className="min-h-screen pt-24 pb-16 px-6" style={{ backgroundColor: "var(--background)", color: "var(--text-primary)" }}>
-      <div className="max-w-5xl mx-auto">
+      <Suspense fallback={null}>
+        <CursorGlow />
+      </Suspense>
+      <div className="max-w-5xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

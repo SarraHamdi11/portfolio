@@ -18,7 +18,7 @@ export default function Home() {
     <div className="min-h-screen relative bg-background">
       <Suspense fallback={null}>
         <Spotlight />
-        {/* <CursorGlow /> */}
+        <CursorGlow />
         <Navbar />
         <FloatingSocials />
         <main className="relative z-10">
